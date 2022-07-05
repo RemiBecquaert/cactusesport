@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
+
 class BaseController extends AbstractController
 {
     #[Route('/index', name: 'index')]
@@ -33,8 +36,17 @@ class BaseController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(): Response
+    public function contact(Request $request): Response
     {
-        return $this->render('base/contact.html.twig', []);
+        $form = $this->createForm(ContactType::class);
+
+        if($request->isMethod('POST')){
+            $form->handleRequest($request);
+            if ($form->isSubmitted()&&$form->isValid()){
+                $this->addFlash('notice','Message envoyé !');
+                return $this->redirectToRoute('contact');
+            }
+        }
+        return $this->render('base/contact.html.twig', [ 'form' => $form->createView()]);
     }
 }

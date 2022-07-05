@@ -49,6 +49,11 @@
   </div>
 </nav>
 
+    {% for message in app.flashes('notice') %}
+     <h2 class="alert alert-warning text-center" role="alert">
+      {{ message }}
+      </h2>
+    {% endfor %}
 
     {% block body %}{% endblock %} 
    

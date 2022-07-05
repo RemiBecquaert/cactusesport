@@ -3,6 +3,49 @@
 {% block title %}{{ parent() }}Contact{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Page de contact</h1>
 
+
+<div class="container mt-4">
+    <div class="row" style="margin: auto;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <h2 class="text-dark text-center"><u>Formulaire de contact</u></h2><br>
+            <h5 class="text-dark text-center">Si vous désirez nous contacter, vous pouvez le faire directement ici<br>via le formulaire de contact ci-dessous !</h5>
+
+                {{form_start(form)}}
+
+                {{form_label(form.email, 'Votre adresse-mail', {'label_attr':{'class':'fw-bold'}})}}
+                {{form_widget(form.email, {'attr':{'class':'form-control', 'placeholder':'Votre adresse-mail'}})}}
+
+                {{form_label(form.nom, 'Votre nom', {'label_attr':{'class':'fw-bold'}})}}
+                {{form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Votre nom'}})}}
+
+                {{form_label(form.prenom, 'Votre prénom', {'label_attr':{'class':'fw-bold'}})}}
+                {{form_widget(form.prenom, {'attr':{'class':'form-control', 'placeholder':'Votre prénom'}})}}
+
+                {{form_label(form.objet, 'Saisir l\'objet du message', {'label_attr':{'class':'fw-bold'}})}}
+                {{form_widget(form.objet, {'attr':{'class':'form-control', 'placeholder':'Objet'}})}}
+
+                {{form_label(form.message, 'Votre message', {'label_attr':{'class':'fw-bold'}})}}
+                {{form_widget(form.message, {'attr':{'class':'form-control', 'placeholder':'Votre message'}})}}
+
+                {{form_widget(form.bouton, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary justify-content-center'}})}}
+                {{form_end(form, {render_rest: true})}} 
+        </div>
+        <div class="col-sx-12 col-sm-12 col-md-12 col-lg-6 mt-4 justify-content-center" id="rs">
+            <h5 class="text-dark text-center">Vous pouvez également retrouver ici nos réseaux sociaux !</h5><br>
+            <ul class="list-group list-group-flush text-center">
+                <li class="list-group-item">
+                    <a href="https://linktr.ee/CactusEsport" style="text-decoration:none;">
+                    Notre Linktree de nos réseaux sociaux !
+                </li>
+                <li class="list-group-item">
+                    <a href="https://discord.gg/ayVfT7zhhd" style="text-decoration:none;">
+                    Rejoins-nous sur notre serveur Discord Communautaire !<span class="emoji">&#127797</span>
+                </li>         
+            </ul>
+            <!--<img src="images/Cactus-e-sport-logo.png" width="40%" alt="Logo Cactus Esport">-->
+        </div>
+    </div>
+</div>
+<br>
 {% endblock %}
