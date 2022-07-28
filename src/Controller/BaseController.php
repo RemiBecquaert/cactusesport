@@ -17,6 +17,12 @@ class BaseController extends AbstractController
         return $this->render('base/index.html.twig', []);
     }
 
+    #[Route('/teams', name: 'teams')]
+    public function teams(): Response
+    {
+        return $this->render('base/teams.html.twig', []);
+    }
+
     #[Route('/rainbow-six', name: 'rainbow-six')]
     public function rainbowSix(): Response
     {
@@ -49,4 +55,23 @@ class BaseController extends AbstractController
         }
         return $this->render('base/contact.html.twig', [ 'form' => $form->createView()]);
     }
+
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('base/about.html.twig', []);
+    }
+    
+    #[Route('/news', name: 'news')]
+    public function news(): Response
+    {
+        return $this->render('base/news.html.twig', []);
+    }
+    
+    #[Route('/shop', name: 'shop')]
+    public function shop(): Response
+    {
+        return $this->render('base/shop.html.twig', []);
+    }    
+
 }

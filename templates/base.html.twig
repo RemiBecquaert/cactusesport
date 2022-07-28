@@ -1,19 +1,20 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    {% block stylesheets %}
-    <!-- Bootstrap CSS -->
-    <link href="https://bootswatch.com/5/lumen/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://bootswatch.com/5/simplex/bootstrap.min.css" rel="stylesheet">
+
    {% endblock %}
     <title>{% block title %}Cactus Esport - {% endblock %}</title>
   </head>
   <body>
    
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{path('index')}}">Cactus Esport</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,23 +24,18 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active " href="#">Shop</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos équipes</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{path('rainbow-six')}}">Rainbow Six Siege</a>
-            <a class="dropdown-item" href="{{path('master-duel')}}">Yu-Gi-Oh ! Master Duel</a>
-            <a class="dropdown-item" href="{{path('rocket-league')}}">Rocket League</a>
-            <div class="dropdown-divider"></div>
-          </div>
+          <a class="nav-link active " href="{{path('shop')}}">Shop</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link active" href="#">Actualités</a>
+          <a class="nav-link active" href="{{path('teams')}}">Nos équipes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="{{path('news')}}">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">A propos</a>
+          <a class="nav-link active" href="{{path('about')}}">A propos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{path('contact')}}">Contact</a>
@@ -55,7 +51,20 @@
       </h2>
     {% endfor %}
 
-    {% block body %}{% endblock %} 
+
+
+    {% block body %}
+    
+    {% block footer %}
+
+    <footer class="container">
+      <p class="float-end"><a href="#">Revenir en haut de page</a></p>
+      <p>&copy; 2021–2022 Cactus Esport. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="{{path('contact')}}">Contactez-nous</a></p>
+    </footer>
+
+    {% endblock %}
+
+    {% endblock %} 
    
     {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
