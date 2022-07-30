@@ -6,8 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Doctrine\Persistence\ManagerRegistry;
+
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use App\Entity\Contact;
 
 class BaseController extends AbstractController
 {
@@ -42,13 +47,32 @@ class BaseController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request): Response
+    public function contact(Request $request, MailerInterface $mailer, ManagerRegistry $doctrine): Response
     {
-        $form = $this->createForm(ContactType::class);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
 
         if($request->isMethod('POST')){
             $form->handleRequest($request);
             if ($form->isSubmitted()&&$form->isValid()){
+                $em = $doctrine->getManager();
+                $email = (new TemplatedEmail())
+                ->from($contact->getEmail())
+                ->to('esportcactus@outlook.fr')
+                ->subject($contact->getObjet())
+                ->htmlTemplate('emails/email.html.twig')
+                ->context([
+                    'nom'=>$contact->getNom(),
+                    'objet'=>$contact->getObjet(),
+                    'message'=>$contact->getMessage(),
+                ]);
+
+
+                $em->persist($contact);
+                $em->flush();
+
+                $mailer->send($email);
+
                 $this->addFlash('notice','Message envoyé !');
                 return $this->redirectToRoute('contact');
             }
