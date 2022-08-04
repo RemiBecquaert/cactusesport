@@ -1,0 +1,22 @@
+{
+  "name": "cactus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemiBecquaert/cactusesport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RemiBecquaert/cactusesport/issues"
+  },
+  "homepage": "https://github.com/RemiBecquaert/cactusesport#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  }
+}

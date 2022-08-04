@@ -8,4 +8,6 @@
 /public/images/
 /var/
 /vendor/
+/node_modules/
+
 ###< symfony/framework-bundle ###
