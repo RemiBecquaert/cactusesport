@@ -1,13 +1,11 @@
 // mes customs
-$primary: #c29938;
-$body-bg: black;
-$list-group-bg: black;
-
-
+$primary: #369035;
+$body-bg: #020202;
+$list-group-bg: #020202;
+$dark: #020202;
+$link-color: $primary;
 @import '../node_modules/bootstrap/scss/_functions';
 @import '../node_modules/bootstrap/scss/_variables';
-
-
 
 // import boostrap
 @import '../node_modules/bootstrap/scss/bootstrap';

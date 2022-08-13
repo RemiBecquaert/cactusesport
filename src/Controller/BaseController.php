@@ -22,12 +22,6 @@ class BaseController extends AbstractController
         return $this->render('base/index.html.twig', []);
     }
 
-    #[Route('/teams', name: 'teams')]
-    public function teams(): Response
-    {
-        return $this->render('base/teams.html.twig', []);
-    }
-
     #[Route('/rainbow-six', name: 'rainbow-six')]
     public function rainbowSix(): Response
     {

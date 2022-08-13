@@ -4,19 +4,25 @@
 
 {% block body %}
 
-<!--Carrousel-->
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<!--div class="d-flex justify-content-center">
+  <img src="images/logo.png" class="img-fluid" alt="Logo Cactus Esport" style="position: absolute; max-width: 85%; z-index:1; opacity: 0.08">
+</div-->
+
+<div class="jumbotron m-5">
+  <h1 class="display-4 text-primary text-center"><strong>Cactus Esport</strong></h1>
+  <p class="lead text-light">La Cactus Esport est une association sous loi 1901 promouvant, participant et organisant des évènements de sports électroniques, plus communément appelés esport. Localisée à Beuvry dans le Pas-de-Calais, nos membres viennent des quatre coins de l'hexagone, mais aussi pour certains du Québec. Notre Team a un but fédérateur et communautaire tout en ayant pour ambitions de professionnaliser notre activité.</p>
+</div>
+
+<div>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-
-      <!--img src="images/Merzouki.png" class="d-block w-100" alt="logo Cactus Esport"-->
+        <!--img src="images/Merzouki.png" class="d-block w-100" alt="logo Cactus Esport"-->
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
         <div class="container">
           <div class="carousel-caption">
             <p><a class="btn btn-lg btn-primary" href="{{path('join')}}">Je postule</a></p>
@@ -25,16 +31,6 @@
       </div>
       <div class="carousel-item">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <p><a class="btn btn-lg btn-primary" href="{{path('teams')}}">Voir les équipes</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
         <div class="container">
           <div class="carousel-caption">
             <p><a class="btn btn-lg btn-primary" href="{{path('shop')}}">Aller au shop</a></p>
@@ -51,59 +47,55 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+</div>
 
-<!--/Carrousel-->
+<div class="container mt-5">
+    <h1 class="text-center text-primary">Nos équipes</h1>
+    <hr class="featurette-divider">    
 
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-  <div class="container marketing p-4">
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
+    <div class="row featurette p-4">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        <h2 class="featurette-heading text-primary"><strong>Rocket League</strong></h2>
+        <p class="lead text-light">Jeu développé et édité par Psyonix, notre équipe est investie dans ce jeu datant de 2015, où les règles sont semblables au football traditionnel, à savoir marquer des buts dans les cages du ou des adversaires, mais cette fois-ci avec un véhicule. Ce jeu requiert beaucoup de techniques ainsi qu'une vivacité dans les prises de décision et les déplacements de chacun.</p>
+        <a class="btn btn-dark text-primary" href="{{path('rocket-league')}}" role="button">Nos joueurs</a>
       </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+      <div class="col-md-5 p-4">
+        <img src="images/rllogo.png" class="d-block w-100" alt="logo Rocket League">
       </div>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
+    <div class="row featurette p-4">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        <h2 class="featurette-heading text-primary"><strong>Yu-Gi-Oh ! Master Duel</strong></h2>
+        <p class="lead text-light text-justify">Tout droit sorti du manga japonais écrit par Kazuki Takahashi du même nom, la Cactus Esport possède une équipe comprenant les meilleurs joueurs français sur ce jeu. Le but étant de réduire les points de vie de l'adversaire avec les cartes monstres, magies ou pièges. Rigueur et connaissances très poussées sont mis à l'honneur sur ce jeu.</p>
+        <a class="btn btn-dark text-primary" href="{{path('master-duel')}}" role="button">Nos joueurs</a>      
       </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+      <div class="col-md-5 order-md-1 p-4">
+        <img src="images/mdlogo.png" class="d-block w-100" alt="logo Master Duel">
       </div>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
+    <div class="row featurette p-4">
       <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        <h2 class="featurette-heading text-primary"><strong>Tom Clancy's Rainbow Six Siege</strong></h2>
+        <p class="lead text-light text-justify">Le dernier jeu de notre équipe, Tom Clancy's Rainbow Six Siege est un FPS tactique développé et édité par Ubisoft. Formant des équipes de 5 joueurs, deux équipes s'affrontent sur des cartes en ayant pour buts d'éliminer tous les joueurs restants de l'équipe adverse ou de protéger un site dit sensible. Une bonne agilité, de bonnes connaissances et une communication parfaite sont les clés de la réussite au niveau compétitif sur ce jeu.</p>
+        <a class="btn btn-dark text-primary" href="{{path('rainbow-six')}}" role="button">Nos joueurs</a>
       </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+      <div class="col-md-5 p-4">
+        <img src="images/r6logo.png" class="d-block w-100" alt="logo Rainbow Six Siege">
       </div>
     </div>
 
     <hr class="featurette-divider">
 
-    <!-- /END THE FEATURETTES -->
+</div>
 
   </div>
+  
 
 {% block footer %}{{ parent() }}{% endblock %}
 
