@@ -58,10 +58,11 @@ class BaseController extends AbstractController
                 ->htmlTemplate('emails/email.html.twig')
                 ->context([
                     'nom'=>$contact->getNom(),
+                    'prenom'=>$contact->getPrenom(),
                     'objet'=>$contact->getObjet(),
                     'message'=>$contact->getMessage(),
                 ]);
-
+                $contact->setDateEnvoi(new \Datetime());
 
                 $em->persist($contact);
                 $em->flush();

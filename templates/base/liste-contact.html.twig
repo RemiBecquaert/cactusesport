@@ -14,16 +14,18 @@
                                 <th scope="col">Email</th>
 								<th scope="col">Nom</th>
 								<th scope="col">Prénom</th>
+								<th scope="col">Date d'envoi</th>
 								<th scope="col">Objet</th>
 								<th scope="col">Message</th>
 							</tr>
 						</thead>
 						<tbody>
-							{% for contact in contacts %}
+							{% for contact in contacts | sort((a, b) => b.dateEnvoi <=> a.dateEnvoi) %}
 								<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
                                     <td>{{ contact.email | lower }}</td>
 									<td>{{ contact.nom | upper }}</td>
 									<td>{{ contact.prenom | capitalize }}</td>
+                    				<td>{{ contact.dateEnvoi | date("d-m-Y à H:i:s") }}</td>
 									<td>{{ contact.objet }}</td>
 									<td>{{ contact.message | nl2br }}</td>
                                     <td>
