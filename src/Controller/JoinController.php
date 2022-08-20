@@ -11,7 +11,6 @@ use App\Entity\Candidature;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 
-
 class JoinController extends AbstractController
 {
     #[Route('/join', name: 'join')]
@@ -34,5 +33,20 @@ class JoinController extends AbstractController
         }
 
         return $this->render('join/join.html.twig', ['form' => $form->createView()]);
+    }
+
+    #[Route('/liste-join', name: 'liste-join')]
+    public function listeJoin(Request $request, ManagerRegistry $doctrine)
+    {
+        $em = $doctrine->getManager();
+        if($request->get('id') != null){
+            $cd = $doctrine->getRepository(Candidature::class)->find($request->get('id'));
+            $em->remove($cd);
+            $em->flush();
+            $this->addFlash('notice','Candidature supprimée !');
+
+        }
+        $candidatures = $doctrine->getRepository(Candidature::class)->findAll();
+        return $this->render('join/liste-join.html.twig', ['candidatures' => $candidatures]);
     }
 }

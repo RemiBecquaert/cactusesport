@@ -14,6 +14,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 use App\Entity\Contact;
+use App\Entity\Candidature;
 
 class BaseController extends AbstractController
 {
@@ -97,17 +98,15 @@ class BaseController extends AbstractController
     #[Route('/liste-contact', name: 'liste-contact')]
     public function listeContact(ManagerRegistry $doctrine, Request $request): Response
     {
-        $contact = new Contact();
         $em = $doctrine->getManager();
         if($request->get('id') != null){
             $c = $doctrine->getRepository(Contact::class)->find($request->get('id'));
             $em->remove($c);
             $em->flush();
             $this->addFlash('notice','Contact supprimé !');
-        } 
+
+        }
         $contacts = $doctrine->getRepository(Contact::class)->findAll();
-
-
         return $this->render('base/liste-contact.html.twig', ['contacts' => $contacts]);
     }
 
