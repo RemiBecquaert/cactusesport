@@ -41,10 +41,22 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{path('contact')}}">Contact</a>
         </li>
+        {% if not app.user %}
+          <a class="btn btn-outline-primary" href="{{path('app_login')}}">Se connecter</a>
+        {% endif %}
+        {% if app.user %}
+          <a class="btn btn-outline-primary" href="{{path('app_logout')}}">Se déconnecter</a>
+        {% endif %}
       </ul>
     </div>
   </div>
 </nav>
+
+        {% if app.user %}
+            <div class="text-light mb-3">
+                Vous connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            </div>
+        {% endif %}
 
     {% for message in app.flashes('notice') %}
      <h2 class="alert alert-warning text-center" role="alert">

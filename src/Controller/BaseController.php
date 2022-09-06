@@ -83,12 +83,6 @@ class BaseController extends AbstractController
         return $this->render('base/about.html.twig', []);
     }
     
-    #[Route('/news', name: 'news')]
-    public function news(): Response
-    {
-        return $this->render('base/news.html.twig', []);
-    }
-    
     #[Route('/shop', name: 'shop')]
     public function shop(): Response
     {
