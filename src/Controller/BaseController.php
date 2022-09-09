@@ -89,7 +89,7 @@ class BaseController extends AbstractController
         return $this->render('base/shop.html.twig', []);
     }    
 
-    #[Route('/liste-contact', name: 'liste-contact')]
+    #[Route('/private-liste-contact', name: 'liste-contact')]
     public function listeContact(ManagerRegistry $doctrine, Request $request): Response
     {
         $em = $doctrine->getManager();

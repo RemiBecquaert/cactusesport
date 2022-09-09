@@ -20,7 +20,6 @@ class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-        $this->addFlash('notice','Vous êtes désormais connecté !');
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
@@ -28,5 +27,20 @@ class SecurityController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
+    #[Route('/private-liste-user', name: 'liste-user')]
+    public function listeUser(ManagerRegistry $doctrine, Request $request): Response
+    {
+        $em = $doctrine->getManager();
+        if($request->get('id') != null){
+            $c = $doctrine->getRepository(User::class)->find($request->get('id'));
+            $em->remove($c);
+            $em->flush();
+            $this->addFlash('notice','Contact supprimé !');
+
+        }
+        $users = $doctrine->getRepository(User::class)->findAll();
+        return $this->render('base/liste-user.html.twig', ['users' => $users]);
     }
 }

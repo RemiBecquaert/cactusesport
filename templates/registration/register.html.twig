@@ -18,10 +18,12 @@
         {{ form_label(registrationForm.plainPassword, 'Votre mot de passe', {'label_attr':{'class':'fw-bold text-light'}}) }}
         {{ form_widget(registrationForm.plainPassword, {'attr':{'class':'form-control text-light', 'placeholder':'Votre mot de passe', 'type':'password'}}) }}
 
-        {{ form_label(registrationForm.agreeTerms, 'J\'accepte les termes', {'label_attr':{'class':'fw-bold text-light'}}) }}
+        {{ form_label(registrationForm.agreeTerms, 'J\'accepte les conditions d\'utilisation', {'label_attr':{'class':'fw-bold text-light'}}) }}
         {{ form_widget(registrationForm.agreeTerms) }}
 
-        <br/><button type="submit" class="btn bg-primary mt-3 justify-content-center">S'inscrire</button>
+        <br/><button type="submit" class="btn bg-primary mt-2 justify-content-center">S'inscrire</button>
     {{ form_end(registrationForm) }}
     </div>
+
+    
 {% endblock %}

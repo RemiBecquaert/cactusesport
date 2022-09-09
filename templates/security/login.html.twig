@@ -5,18 +5,10 @@
 {% block body %}
 
 <div class="container mt-4">
-
-    <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
-
-        {% if app.user %}
-            <div class="text-light mb-3">
-                Vous connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-            </div>
-        {% endif %}
-        
+    <form method="post">       
         <h1 class="text-primary h3 mb-3 font-weight-normal text-center"><u>Se connecter</u></h1>
         <label for="inputEmail" class="text-light">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="text-light form-control" autocomplete="email" placeholder="Adresse mail" required autofocus>

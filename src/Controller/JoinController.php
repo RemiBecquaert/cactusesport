@@ -35,7 +35,7 @@ class JoinController extends AbstractController
         return $this->render('join/join.html.twig', ['form' => $form->createView()]);
     }
 
-    #[Route('/liste-join', name: 'liste-join')]
+    #[Route('/private-liste-join', name: 'liste-join')]
     public function listeJoin(Request $request, ManagerRegistry $doctrine)
     {
         $em = $doctrine->getManager();

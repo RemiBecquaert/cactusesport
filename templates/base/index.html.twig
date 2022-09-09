@@ -4,95 +4,40 @@
 
 {% block body %}
 
-<!--div class="d-flex justify-content-center">
-  <img src="images/logo.png" class="img-fluid" alt="Logo Cactus Esport" style="position: absolute; max-width: 85%; z-index:1; opacity: 0.08">
-</div-->
-<div>
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images/banniere_recrute.png" class="d-block w-100 img-thumbnail" alt="On recrute chez Cactus Esport">
-        <div class="container">
-          <div class="carousel-caption text-right">
-            <p><a class="btn btn-block mx-4 btn-primary m-0" href="{{path('join')}}">Je postule</a></p>
+  <div>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/banniere_recrute.png" class="d-block w-100" alt="On recrute chez Cactus Esport">
+          <div class="container">
+            <div class="carousel-caption text-right">
+              <p><a class="btn btn-block mx-4 btn-primary m-0" href="{{path('join')}}">Je postule</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/banniere_shop.png" class="d-block w-100" alt="Visite notre shop Cactus Esport">
+          <div class="container">
+            <div class="carousel-caption text-right">
+              <p><a class="btn btn-block mx-4 btn-primary m-0" href="{{path('shop')}}">Aller au shop</a></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="images/banniere_shop.png" class="d-block w-100 img-thumbnail" alt="Visite notre shop Cactus Esport">
-        <div class="container">
-          <div class="carousel-caption text-right">
-            <p><a class="btn btn-block mx-4 btn-primary m-0" href="{{path('shop')}}">Aller au shop</a></p>
-          </div>
-        </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-
-<div class="jumbotron m-5">
-  <h1 class="display-4 text-primary text-center"><strong>Cactus Esport</strong></h1>
-  <p class="lead text-light">La Cactus Esport est une association sous loi 1901 promouvant, participant et organisant des évènements de sports électroniques, plus communément appelés esport. Localisée à Beuvry dans le Pas-de-Calais, nos membres viennent des quatre coins de l'hexagone, mais aussi pour certains du Québec. Notre Team a un but fédérateur et communautaire tout en ayant pour ambitions de professionnaliser notre activité.</p>
-</div>
-
-
-<div class="container mt-5">
-    <h1 class="text-center text-primary">Nos équipes</h1>
-    <div class="row featurette p-4">
-      <div class="col-md-7">
-        <h2 class="featurette-heading text-primary"><strong>Rocket League</strong></h2>
-        <p class="lead text-light">Jeu développé et édité par Psyonix, notre équipe est investie dans ce jeu datant de 2015, où les règles sont semblables au football traditionnel, à savoir marquer des buts dans les cages du ou des adversaires, mais cette fois-ci avec un véhicule. Ce jeu requiert beaucoup de techniques ainsi qu'une vivacité dans les prises de décision et les déplacements de chacun.</p>
-        <a class="btn btn-dark text-primary" href="{{path('rocket-league')}}" role="button">Nos joueurs</a>
-      </div>
-      <div class="col-md-5 p-4">
-        <img src="images/rllogo.png" class="d-block w-100" alt="logo Rocket League">
-      </div>
-    </div>
-
-    <hr class="featurette-divider text-light">
-
-    <div class="row featurette p-4">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading text-primary"><strong>Yu-Gi-Oh ! Master Duel</strong></h2>
-        <p class="lead text-light text-justify">Tout droit sorti du manga japonais écrit par Kazuki Takahashi du même nom, la Cactus Esport possède une équipe comprenant les meilleurs joueurs français sur ce jeu. Le but étant de réduire les points de vie de l'adversaire avec les cartes monstres, magies ou pièges. Rigueur et connaissances très poussées sont mis à l'honneur sur ce jeu.</p>
-        <a class="btn btn-dark text-primary" href="{{path('master-duel')}}" role="button">Nos joueurs</a>      
-      </div>
-      <div class="col-md-5 order-md-1 p-4">
-        <img src="images/mdlogo.png" class="d-block w-100" alt="logo Master Duel">
-      </div>
-    </div>
-
-    <hr class="featurette-divider text-light">
-
-    <div class="row featurette p-4">
-      <div class="col-md-7">
-        <h2 class="featurette-heading text-primary"><strong>Tom Clancy's Rainbow Six Siege</strong></h2>
-        <p class="lead text-light text-justify">Le dernier jeu de notre équipe, Tom Clancy's Rainbow Six Siege est un FPS tactique développé et édité par Ubisoft. Formant des équipes de 5 joueurs, deux équipes s'affrontent sur des cartes en ayant pour buts d'éliminer tous les joueurs restants de l'équipe adverse ou de protéger un site dit sensible. Une bonne agilité, de bonnes connaissances et une communication parfaite sont les clés de la réussite au niveau compétitif sur ce jeu.</p>
-        <a class="btn btn-dark text-primary" href="{{path('rainbow-six')}}" role="button">Nos joueurs</a>
-      </div>
-      <div class="col-md-5 p-4">
-        <img src="images/r6logo.png" class="d-block w-100" alt="logo Rainbow Six Siege">
-      </div>
-    </div>
-
-    <hr class="featurette-divider text-light">
-
-</div>
-
-  </div>
-  
+  </div> 
 
 {% block footer %}{{ parent() }}{% endblock %}
 

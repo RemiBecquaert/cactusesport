@@ -29,6 +29,18 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Nos équipes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{path('rainbow-six')}}">Rainbow Six Siege</a></li>
+            <li><a class="dropdown-item" href="{{path('master-duel')}}">Master Duel</a></li>
+            <li><a class="dropdown-item" href="{{path('rocket-league')}}">Rocket League</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item disabled" href="#">Coming soon...</a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{path('shop')}}">Shop</a>
         </li>
@@ -41,8 +53,21 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{path('contact')}}">Contact</a>
         </li>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Contrôles
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{path('liste-contact')}}">Liste des contacts</a></li>
+            <li><a class="dropdown-item" href="{{path('liste-join')}}">Liste des recrutements</a></li>
+          </ul>
+        </li>
+        {% endif %}
+        
         {% if not app.user %}
           <a class="btn btn-outline-primary" href="{{path('app_login')}}">Se connecter</a>
+          <a class="btn btn-outline-primary" href="{{path('app_register')}}">S'inscrire</a>
         {% endif %}
         {% if app.user %}
           <a class="btn btn-outline-primary" href="{{path('app_logout')}}">Se déconnecter</a>
@@ -53,8 +78,8 @@
 </nav>
 
         {% if app.user %}
-            <div class="text-light mb-3">
-                Vous connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            <div class="text-light text-center">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
             </div>
         {% endif %}
 
