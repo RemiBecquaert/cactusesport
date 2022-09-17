@@ -97,8 +97,8 @@ class BaseController extends AbstractController
             $c = $doctrine->getRepository(Contact::class)->find($request->get('id'));
             $em->remove($c);
             $em->flush();
-            $this->addFlash('notice','Contact supprimé !');
-
+            $this->addFlash('danger','Contact supprimé !');
+            return $this->redirectToRoute('liste-contact');
         }
         $contacts = $doctrine->getRepository(Contact::class)->findAll();
         return $this->render('base/liste-contact.html.twig', ['contacts' => $contacts]);
