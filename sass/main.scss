@@ -1,9 +1,5 @@
 // mes customs
-$primary: #369035;
-$body-bg: #020202;
-$list-group-bg: #020202;
-$dark: #020202;
-$link-color: $primary;
+
 
 @import '../node_modules/bootstrap/scss/_functions';
 @import '../node_modules/bootstrap/scss/_variables';
@@ -11,3 +7,13 @@ $link-color: $primary;
 // import boostrap
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+$primary: #369035;
+$body-bg: #020202;
+$list-group-bg: #020202;
+$dark: #020202;
+$link-color: $primary;
+
+$font-family-sans-serif: "Times New Roman", Times, serif;
+$font-family-serif: "Times New Roman", Times, serif;
+$font-family-monospace:  "Times New Roman", Times, serif;
+$font-family-base:       $font-family-sans-serif !default;

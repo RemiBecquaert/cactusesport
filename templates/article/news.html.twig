@@ -3,6 +3,28 @@
 {% block title %}{{ parent() }}Actualités{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Actualités</h1>
+<h1 class="text-center text-primary">Actualités</h1>
+
+<div class="container">
+  <div class="row">
+{% for article in articles | sort((a, b) => b.datePublication <=> a.datePublication) %}
+  <div class="col-6">
+    <div class="card text-center m-4">
+      <div class="card-header bg-dark text-primary">
+        {{article.sujet.libelle}}
+      </div>
+      <div class="card-body text-light bg-dark">
+        <h5 class="card-title text-light"> 
+        {{article.titre}}
+        </h5>
+        <p class="card-text text-light bg-dark">{{ article.chapeau }}</p>
+        <a href="{{path('article', {'id':article.id})}}" class="btn btn-primary">Lire l'article</a>
+      </div>
+    </div>
+    </div>
+{% endfor %}
+  </div>
+</div>
+
 
 {% endblock %}

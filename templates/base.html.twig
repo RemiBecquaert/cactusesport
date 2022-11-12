@@ -19,7 +19,7 @@
   <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container d-flex justify-content-center">
+  <div class="container d-flex">
       <a class="navbar-brand" href="{{path('index')}}">
         <img src="images/logo.png" width="45" height="50" alt="Logo Cactus Esport">
       </a>
@@ -37,15 +37,14 @@
             <li><a class="dropdown-item" href="{{path('rainbow-six')}}">Rainbow Six Siege</a></li>
             <li><a class="dropdown-item" href="{{path('master-duel')}}">Master Duel</a></li>
             <li><a class="dropdown-item" href="{{path('rocket-league')}}">Rocket League</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item disabled" href="#">Coming soon...</a></li>
+            <li><a class="dropdown-item" href="{{path('league-of-legends')}}">League of Legends</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{path('shop')}}">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{path('news')}}">Actualités</a>
+          <a class="nav-link active" href="{{path('app_article_index')}}">Actualités</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{path('about')}}">Staff</a>
@@ -61,28 +60,26 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{path('liste-contact')}}">Liste des contacts</a></li>
             <li><a class="dropdown-item" href="{{path('liste-join')}}">Liste des recrutements</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href="{{path('app_article_new')}}">Créer un article</a></li>
+            <li><a class="dropdown-item" href="{{path('app_create_sujet')}}">Ajouter un sujet d'article</a></li>
+
           </ul>
         </li>
         {% endif %}
-        
-        {% if not app.user %}
-          <a class="btn btn-outline-primary" href="{{path('app_login')}}">Se connecter</a>
-          <a class="btn btn-outline-primary" href="{{path('app_register')}}">S'inscrire</a>
-        {% endif %}
-        {% if app.user %}
-          <a class="btn btn-outline-primary" href="{{path('app_logout')}}">Se déconnecter</a>
-        {% endif %}
       </ul>
     </div>
+        <ul class="nav navbar-nav navbar-right">
+          {% if not app.user %}
+            <a class="btn btn-outline-primary" href="{{path('app_login')}}">Se connecter</a>
+            <a class="btn btn-outline-primary" href="{{path('app_register')}}">S'inscrire</a>
+          {% endif %}
+          {% if app.user %}
+            <a class="btn btn-outline-primary" href="{{path('app_logout')}}">Se déconnecter</a>
+          {% endif %}
+        </ul>
   </div>
 </nav>
-
-
-        {% if app.user %}
-            <div class="text-light text-center">
-                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-            </div>
-        {% endif %}
 
     {% for message in app.flashes('notice') %}
      <h2 class="alert alert-warning text-center" role="alert">
@@ -154,7 +151,7 @@
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="{{path('news')}}" class="text-white">Actualités</a>
+              <a href="{{path('app_article_index')}}" class="text-white">Actualités</a>
             </li>
             <li>
               <a href="#!" class="text-white">Link 2</a>

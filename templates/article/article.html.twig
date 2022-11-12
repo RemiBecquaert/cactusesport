@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block body %}
+<h1 class="text-center text-primary">{{ article.titre }}</h1>
+
+<div class="container">
+    <div class="card text-center m-4">
+    {% for image in article.images %}
+      <div class="bg-dark p-1">
+        <img class="img-thumbnail" src="{{ asset('uploads/'~image.name) }}" alt="test" width="200">
+      </div>    
+    {% endfor %}
+      <div class="card-body bg-dark text-light">
+        <p class="card-text">{{ article.chapeau }}</p><br>
+        <p class="card-text">{{ article.mainText | nl2br }}</p>
+      </div>
+      <div class="card-header bg-dark text-primary">
+        {{article.sujet.libelle}}
+      </div>
+      <div class="card-footer text-muted bg-dark text-light">
+        Date de publication: {{ article.datePublication | date("d-m-Y à H:i") }}
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

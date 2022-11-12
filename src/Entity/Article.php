@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,8 +28,17 @@ class Article
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $datePublication = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $auteur = null;
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Sujet $sujet = null;
+
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Images::class)]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -82,14 +93,44 @@ class Article
         return $this;
     }
 
-    public function getAuteur(): ?string
+    public function getSujet(): ?Sujet
     {
-        return $this->auteur;
+        return $this->sujet;
     }
 
-    public function setAuteur(string $auteur): self
+    public function setSujet(?Sujet $sujet): self
     {
-        $this->auteur = $auteur;
+        $this->sujet = $sujet;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArticle() === $this) {
+                $image->setArticle(null);
+            }
+        }
 
         return $this;
     }

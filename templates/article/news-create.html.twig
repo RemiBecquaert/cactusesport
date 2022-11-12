@@ -17,13 +17,20 @@
                 {{form_label(form.chapeau, 'Rajoutez le texte chapeau', {'label_attr':{'class':'fw-bold text-light'}})}}
                 {{form_widget(form.chapeau, {'attr':{'class':'form-control text-light', 'placeholder':'Le texte chapeau'}})}}
 
+                {{form_label(form.sujet, 'Sujet de l\'article', {'label_attr':{'class':'fw-bold text-light'}})}}
+                {{form_widget(form.sujet, {'attr':{'class':'form-control text-light', 'placeholder':'Sujet de l\'article'}})}}
+
                 {{form_label(form.mainText, 'Écrivez le texte de l\'article', {'label_attr':{'class':'fw-bold text-light'}})}}
                 {{form_widget(form.mainText, {'attr':{'class':'form-control text-light', 'placeholder':'Le texte de l\'article'}})}}
+
+                {{form_label(form.images, 'Image pour l\'article', {'label_attr':{'class':'fw-bold text-light'}})}}
+                {{form_widget(form.images, {'attr':{'class':'form-control text-light', 'placeholder':'Image de l\'article'}})}}
 
                 {{form_widget(form.bouton, {'label':"Poster l\'article", 'attr':{'class':'btn bg-primary mt-3 justify-content-center'}})}}
                 {{form_end(form, {render_rest: true})}} 
         </div>
     </div>
 </div>    
+
 
 {% endblock %}

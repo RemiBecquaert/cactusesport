@@ -36,11 +36,29 @@ class BaseController extends AbstractController
         return $this->render('base/rocket-league.html.twig', []);
     }
 
+    #[Route('/league-of-legends', name: 'league-of-legends')]
+    public function leagueOfLegends(): Response
+    {
+        return $this->render('base/lol.html.twig', []);
+    }
+
     #[Route('/master-duel', name: 'master-duel')]
     public function masterDuel(): Response
     {
         return $this->render('base/master-duel.html.twig', []);
     }
+
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('base/about.html.twig', []);
+    }
+    
+    #[Route('/shop', name: 'shop')]
+    public function shop(): Response
+    {
+        return $this->render('base/shop.html.twig', []);
+    }    
 
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request, MailerInterface $mailer, ManagerRegistry $doctrine): Response
@@ -76,18 +94,6 @@ class BaseController extends AbstractController
         }
         return $this->render('base/contact.html.twig', [ 'form' => $form->createView()]);
     }
-
-    #[Route('/about', name: 'about')]
-    public function about(): Response
-    {
-        return $this->render('base/about.html.twig', []);
-    }
-    
-    #[Route('/shop', name: 'shop')]
-    public function shop(): Response
-    {
-        return $this->render('base/shop.html.twig', []);
-    }    
 
     #[Route('/private-liste-contact', name: 'liste-contact')]
     public function listeContact(ManagerRegistry $doctrine, Request $request): Response
