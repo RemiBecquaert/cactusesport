@@ -23,14 +23,15 @@ class Contact
     #[ORM\Column(length: 100)]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $objet = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateEnvoi = null;
+
+    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SujetContact $typeContact = null;
 
     public function getId(): ?int
     {
@@ -73,25 +74,13 @@ class Contact
         return $this;
     }
 
-    public function getObjet(): ?string
-    {
-        return $this->objet;
-    }
-
-    public function setObjet(string $objet): self
-    {
-        $this->objet = $objet;
-
-        return $this;
-    }
-
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    public function setMessage(string $message): self
-    {
+    public function setMessage(string $message): self{
+    
         $this->message = $message;
 
         return $this;
@@ -105,6 +94,18 @@ class Contact
     public function setDateEnvoi(\DateTimeInterface $dateEnvoi): self
     {
         $this->dateEnvoi = $dateEnvoi;
+
+        return $this;
+    }
+
+    public function getTypeContact(): ?SujetContact
+    {
+        return $this->typeContact;
+    }
+
+    public function setTypeContact(?SujetContact $typeContact): self
+    {
+        $this->typeContact = $typeContact;
 
         return $this;
     }

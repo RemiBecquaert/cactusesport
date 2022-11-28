@@ -3,6 +3,76 @@
 {% block title %}{{ parent() }}Shop{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Shop</h1>
+
+<div class="container p-4 text-center">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-1 text-primary"><strong>Shop Cactus Esport</strong></h1>
+            <p class="lead text-light">Montre ton soutien à l'équipe. Découvre la gamme de produits Cactus Esport en collaboration avec
+            notre partenaire One X Wear</p>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="card mb-3 bg-dark">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('images/maillot.jpg') }}" class="img-fluid img-thumbnail" alt="Maillot Cactus Esport">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Maillot officiel Cactus Esport</h2>
+                    <p class="card-text text-light">Affiche ton soutien à l'équipe avec le maillot officiel Cactus Esport 1ère édition.<br/>
+                    Disponible de XS à 6XL<br/>Matière 100% polyester<br/>Possibilité d'ajouter un pseudo, un texte supplémentaire et un 
+                    numéro au dos</p>
+                    <a href="https://onex.gg/produit/cactus-esport-official-jersey/" class="btn btn-primary">Acheter le maillot</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="card mb-3 bg-dark">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('images/drapeau.jpg') }}" class="img-fluid img-thumbnail" alt="Drapeau Cactus Esport">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Drapeau officiel Cactus Esport</h2>
+                    <p class="card-text text-light">Élément incontournable pour tout supporter qui se respecte, le drapeau Cactus 1ère édition
+                     permet de te démarquer parmi les autres.<br/>
+                     Logo Cactus Esport 1ère édition sur fond noir<br/>
+                     Encoches aux coins pour l'accrocher au mur</p>
+                    <a href="https://onex.gg/produit/cactus-esport-flag/" class="btn btn-primary">Acheter le drapeau</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="card mb-3 bg-dark">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('images/manchettes.jpg') }}" class="img-fluid img-thumbnail" alt="Manchettes Cactus Esport">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Manchettes officielles Cactus Esport</h2>
+                    <p class="card-text text-light">Les manchettes donnent une sensation de légèreté et limitent la sensation d'engourdissement<br/>
+                    Disponible de XS à 6XL
+                    </p>
+                    <a href="https://onex.gg/produit/cactus-esport-official-jersey/" class="btn btn-primary">Acheter les manchettes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block footer %}{{ parent() }}{% endblock %}
+
 
 {% endblock %}

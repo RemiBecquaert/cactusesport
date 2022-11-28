@@ -17,7 +17,7 @@
         <h5 class="card-title text-light"> 
         {{article.titre}}
         </h5>
-        <p class="card-text text-light bg-dark">{{ article.chapeau }}</p>
+        <p class="card-text text-light bg-dark">{{ article.chapeau | slice(0, 20) }}...</p>
         <a href="{{path('article', {'id':article.id})}}" class="btn btn-primary">Lire l'article</a>
       </div>
     </div>

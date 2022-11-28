@@ -30,12 +30,6 @@ class BaseController extends AbstractController
         return $this->render('base/rainbow-six.html.twig', []);
     }
 
-    #[Route('/rocket-league', name: 'rocket-league')]
-    public function rocketLeague(): Response
-    {
-        return $this->render('base/rocket-league.html.twig', []);
-    }
-
     #[Route('/league-of-legends', name: 'league-of-legends')]
     public function leagueOfLegends(): Response
     {

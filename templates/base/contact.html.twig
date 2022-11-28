@@ -10,7 +10,6 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <h5 class="text-light text-center">Si vous désirez nous contacter, vous pouvez le faire directement ici<br>via le formulaire de contact ci-dessous !</h5>
-            <h5 class="text-light text-center"><span class="emoji">&#9888</span>Aucune demande de recrutement ne sera prise en compte ici,<br/> voir <a href="{{path('join')}}">la page de recrutement</a></h5>
 
             <hr class="featurette-divider text-light">    
 
@@ -25,8 +24,8 @@
                 {{form_label(form.prenom, 'Votre prénom', {'label_attr':{'class':'fw-bold text-light'}})}}
                 {{form_widget(form.prenom, {'attr':{'class':'form-control text-light', 'placeholder':'Votre prénom', 'maxlength':'50'}})}}
 
-                {{form_label(form.objet, 'Saisir l\'objet du message', {'label_attr':{'class':'fw-bold text-light'}})}}
-                {{form_widget(form.objet, {'attr':{'class':'form-control text-light', 'placeholder':'Objet', 'maxlength':'100'}})}}
+                {{form_label(form.typeContact, 'Saisir l\'objet du message', {'label_attr':{'class':'fw-bold text-light'}})}}
+                {{form_widget(form.typeContact, {'attr':{'class':'form-control text-light', 'placeholder':'Objet', 'maxlength':'100'}})}}
 
                 {{form_label(form.message, 'Votre message', {'label_attr':{'class':'fw-bold text-light'}})}}
                 {{form_widget(form.message, {'attr':{'class':'form-control text-light', 'placeholder':'Votre message'}})}}
