@@ -24,6 +24,12 @@ class BaseController extends AbstractController
         return $this->render('base/index.html.twig', []);
     }
 
+    #[Route('/mentions-legales', name: 'mentions-legales')]
+    public function mentions(): Response
+    {
+        return $this->render('base/mentions.html.twig', []);
+    }
+
     #[Route('/rainbow-six', name: 'rainbow-six')]
     public function rainbowSix(): Response
     {
@@ -40,12 +46,6 @@ class BaseController extends AbstractController
     public function masterDuel(): Response
     {
         return $this->render('base/master-duel.html.twig', []);
-    }
-
-    #[Route('/about', name: 'about')]
-    public function about(): Response
-    {
-        return $this->render('base/about.html.twig', []);
     }
     
     #[Route('/shop', name: 'shop')]

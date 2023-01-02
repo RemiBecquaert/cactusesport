@@ -7,6 +7,12 @@
 
 <div class="container">
   <div class="row">
+{% if articles is empty %}
+<div class="container text-center">
+  <h5 class="text-light">Aucun article n'est encore disponible !</h5> 
+</div>  
+{% endif %}
+
 {% for article in articles | sort((a, b) => b.datePublication <=> a.datePublication) %}
   <div class="col-6">
     <div class="card text-center m-4">
@@ -26,5 +32,8 @@
   </div>
 </div>
 
+{% block footer %}{{ parent() }}{% endblock %}
 
 {% endblock %}
+
+
